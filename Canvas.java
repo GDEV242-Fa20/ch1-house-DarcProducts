@@ -10,8 +10,9 @@ import java.util.*;
  *
  * @author: Bruce Quig
  * @author: Michael Kšlling (mik)
+ * @author: Craig Hussey
  *
- * @version 2016.02.29
+ * @version 2020.09.07
  */
 public class Canvas
 {
@@ -87,7 +88,20 @@ public class Canvas
         }
         frame.setVisible(visible);
     }
-
+    /**
+     * Sets background to black color ~added by Craig Hussey
+     */
+    public void changeToBlack()
+    {
+        backgroundColor = Color.black;
+    }
+    /**
+     * Sets background to white color ~added by Craig Hussey
+     */
+    public void changeToWhite()
+    {
+        backgroundColor = Color.white;
+    }
     /**
      * Draw a given shape onto the canvas.
      * @param  referenceObject  an object to define identity for this shape
@@ -142,6 +156,10 @@ public class Canvas
         }
         else if(colorString.equals("white")) {
             graphic.setColor(Color.white);
+        }
+        else if (colorString.equals("silver"))
+        {
+            graphic.setColor(new Color(200, 200, 200));
         }
         else {
             graphic.setColor(Color.black);

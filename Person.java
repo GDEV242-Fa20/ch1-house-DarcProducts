@@ -28,7 +28,30 @@ public class Person
         color = "black";
         isVisible = false;
     }
+    /**
+     * changes size of person slowly to a target size ~added by Craig Hussey
+     */
+    public void slowSize(int target)
+    {
+        int delta;
 
+        if(target < 0) 
+        {
+            delta = -1;
+            target = -target;
+        }
+        else 
+        {
+            delta = 1;
+        }
+
+        for(int i = 0; i < target; i++)
+        {
+            height += delta;
+            width += delta;
+            draw();
+        }
+    }
     /**
      * Make this person visible. If it was already visible, do nothing.
      */
@@ -98,7 +121,19 @@ public class Person
         yPosition += distance;
         draw();
     }
-
+    /**moves the person around in space. ~added by Craig Hussey
+     * 
+     */
+    public void FloatAround()
+    {
+          slowMoveHorizontal(-40);
+          slowMoveVertical(80);
+          slowMoveHorizontal(260);
+          slowMoveVertical(-140);
+          slowMoveHorizontal(-220);
+          slowMoveVertical(60);
+    }
+    
     /**
      * Slowly move the person horizontally by 'distance' pixels.
      */

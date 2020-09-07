@@ -10,6 +10,8 @@ import java.awt.*;
 public class Square
 {
     private int size;
+    private int width; //added by Craig Hussey
+    private int height; //added by Craig Hussey
     private int xPosition;
     private int yPosition;
     private String color;
@@ -21,12 +23,27 @@ public class Square
     public Square()
     {
         size = 60;
+        width = 60;
+        height = 60;
         xPosition = 310;
         yPosition = 120;
         color = "red";
         isVisible = false;
     }
-
+    /**
+     * changes square width ~added by Craig Hussey
+     */
+    public void changeWidth(int size)
+    {
+        width = size;
+    }
+    /**
+     * changes square height ~added by Craig Hussey
+     */
+    public void changeHeight(int size)
+    {
+        height = size;
+    }
     /**
      * Make this square visible. If it was already visible, do nothing.
      */
@@ -151,7 +168,8 @@ public class Square
     public void changeSize(int newSize)
     {
         erase();
-        size = newSize;
+        width = newSize;
+        height = newSize;
         draw();
     }
 
@@ -173,7 +191,7 @@ public class Square
         if(isVisible) {
             Canvas canvas = Canvas.getCanvas();
             canvas.draw(this, color,
-                        new Rectangle(xPosition, yPosition, size, size));
+                        new Rectangle(xPosition, yPosition, width, height));
             canvas.wait(10);
         }
     }

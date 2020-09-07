@@ -96,7 +96,29 @@ public class Circle
         yPosition += distance;
         draw();
     }
+    /**
+     * changes the size of the circle over time ~added by Craig Hussey
+     */
+    public void slowMoveSize(int distance)
+    {
+        int delta;
 
+        if(distance < 0) 
+        {
+            delta = -1;
+            distance = -distance;
+        }
+        else 
+        {
+            delta = 1;
+        }
+
+        for(int i = 0; i < distance; i++)
+        {
+            diameter += delta;
+            draw();
+        }
+    }
     /**
      * Slowly move the circle horizontally by 'distance' pixels.
      */
